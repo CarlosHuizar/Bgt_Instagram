@@ -29,16 +29,16 @@ class LoginViewController: UIViewController {
         let newUser = PFUser()
         newUser.username = usernameField.text
         newUser.password = passwordField.text
-        newUser.signUpInBackground { (success: Bool,error: Error? ) -> Void in
+        newUser.signUpInBackground { (success: Bool,error: Error? ) in
             if success{
                 print("Yaya, user created")
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                //self.performSegue(withIdentifier: "loginSegue", sender: nil)
                 
             }else{
                 print(error?.localizedDescription)
-                if error?._code == 202{
-                    print("Username is taken")
-                }
+                //if error?._code == 202{
+                //    print("Username is taken")
+                //}
             }
         }
         
