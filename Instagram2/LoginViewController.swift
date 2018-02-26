@@ -24,6 +24,15 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func onSignIn(_ sender: Any) {
+        PFUser.logInWithUsername(inBackground: usernameField.text!, password: passwordField.text!) { (user: PFUser?, error: Error?) in
+            if user != nil {
+                print("Loggin right")
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+//            } else {
+//                print("User logged in successfully")
+//                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            }
+        }
     }
     @IBAction func onSignUp(_ sender: Any) {
         let newUser = PFUser()
@@ -32,7 +41,7 @@ class LoginViewController: UIViewController {
         newUser.signUpInBackground { (success: Bool,error: Error? ) in
             if success{
                 print("Yaya, user created")
-                //self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
                 
             }else{
                 print(error?.localizedDescription)
