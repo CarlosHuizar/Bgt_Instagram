@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Instagram2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Instagram2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,27 +55,59 @@
                     <connections>
                         <outlet property="passwordField" destination="tpk-kp-hPL" id="qK6-YX-jY3"/>
                         <outlet property="usernameField" destination="EAe-qc-ui5" id="pfW-F1-XtE"/>
-                        <segue destination="IF1-t4-rKZ" kind="presentation" identifier="loginSegue" id="KnI-Qt-Li8"/>
+                        <segue destination="w5U-if-edd" kind="presentation" identifier="loginSegue" id="KnI-Qt-Li8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
-        <!--View Controller-->
+        <!--Instagram-->
         <scene sceneID="SBQ-RK-RV7">
             <objects>
-                <viewController id="IF1-t4-rKZ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="IF1-t4-rKZ" customClass="MainViewController" customModule="Instagram2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NdJ-UC-dPy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfe-GX-0WZ">
+                                <rect key="frame" x="35" y="20" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Out"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="Mkc-qf-MKw"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Instagram" id="MJc-hJ-uly">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="7vz-qW-SJK">
+                            <connections>
+                                <action selector="onLogOut:" destination="IF1-t4-rKZ" id="rVA-f6-VjE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MdY-yS-Sg0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="852" y="133"/>
+            <point key="canvasLocation" x="1687" y="133"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Kiw-wm-uL2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w5U-if-edd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8xS-tn-Mtk">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="IF1-t4-rKZ" kind="relationship" relationship="rootViewController" id="BhT-gC-CVH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Stn-ca-SA5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="895" y="133"/>
         </scene>
     </scenes>
 </document>
