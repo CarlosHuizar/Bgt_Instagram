@@ -17,9 +17,16 @@ class MainViewController: UIViewController, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         feedTableView.dataSource = self
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(MainViewController.didPullToRefresh(_:)), for: .valueChanged)
+        // add refresh control to table view
+        feedTableView.insertSubview(refreshControl, at: 0)
         
         getFeed()
         
+    }
+    @objc func didPullToRefresh(_ refreshControl: UIRefreshControl){
+        getFeed()
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +61,7 @@ class MainViewController: UIViewController, UITableViewDataSource{
                 // handle error
             }
             self.feedTableView.reloadData()
+            
         }
         
     }

@@ -35,6 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Share")
             self.goHome()
         }
+        NotificationCenter.default.addObserver(forName: Notification.Name("didHome"), object: nil, queue: OperationQueue.main) { (Notification) in
+            print("home")
+            self.goHome()
+        }
         
         return true
     }

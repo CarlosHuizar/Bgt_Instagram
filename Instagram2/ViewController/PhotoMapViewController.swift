@@ -70,9 +70,7 @@ class PhotoMapViewController: UIViewController,UIImagePickerControllerDelegate,U
     }
     
     @IBAction func onBack(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let PhotoMapViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
-        self.present(PhotoMapViewController, animated: true, completion: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("didHome"), object: nil)
     }
     @IBAction func onShare(_ sender: Any) {
        Post.postUserImage(image: uploadImageView.image, withCaption: captionTextField.text){
