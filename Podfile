@@ -7,6 +7,8 @@ target 'Instagram2' do
 
   # Pods for Instagram2
 	pod 'Parse'
+	pod 'ParseUI'
+    	pod 'UITextView+Placeholder', '~> 1.2'
   target 'Instagram2Tests' do
     inherit! :search_paths
     # Pods for testing

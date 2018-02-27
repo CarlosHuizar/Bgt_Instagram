@@ -10,6 +10,9 @@
 		0C426984B877CCAB28B26D36 /* Pods_Instagram2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4362BB52FB53D30850F7E053 /* Pods_Instagram2.framework */; };
 		83356A06DC786E58274866C9 /* Pods_Instagram2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EED1FA15EAED0495713EEE32 /* Pods_Instagram2UITests.framework */; };
 		989B092A2044D0D50017BA76 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989B09292044D0D50017BA76 /* MainViewController.swift */; };
+		989B092C2044E7AD0017BA76 /* PhotoMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989B092B2044E7AD0017BA76 /* PhotoMapViewController.swift */; };
+		989B092E2044FFE20017BA76 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989B092D2044FFE20017BA76 /* Post.swift */; };
+		989B0930204505DA0017BA76 /* tableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989B092F204505DA0017BA76 /* tableCell.swift */; };
 		98C2A4BE2043BCB700FAA28F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2A4BD2043BCB700FAA28F /* LoginViewController.swift */; };
 		98F552DF2043B54B0069D699 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F552DE2043B54B0069D699 /* AppDelegate.swift */; };
 		98F552E12043B54B0069D699 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F552E02043B54B0069D699 /* ViewController.swift */; };
@@ -46,6 +49,9 @@
 		573C2F54019572E41E327289 /* Pods-Instagram2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram2Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram2Tests/Pods-Instagram2Tests.release.xcconfig"; sourceTree = "<group>"; };
 		7888CF2D4FEE723AE916BD08 /* Pods_Instagram2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		989B09292044D0D50017BA76 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		989B092B2044E7AD0017BA76 /* PhotoMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMapViewController.swift; sourceTree = "<group>"; };
+		989B092D2044FFE20017BA76 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		989B092F204505DA0017BA76 /* tableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableCell.swift; sourceTree = "<group>"; };
 		98C2A4BD2043BCB700FAA28F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		98F552DB2043B54B0069D699 /* Instagram2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F552DE2043B54B0069D699 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +118,7 @@
 				98C2A4BD2043BCB700FAA28F /* LoginViewController.swift */,
 				98F552E02043B54B0069D699 /* ViewController.swift */,
 				989B09292044D0D50017BA76 /* MainViewController.swift */,
+				989B092B2044E7AD0017BA76 /* PhotoMapViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -147,6 +154,8 @@
 				98F552E52043B54B0069D699 /* Assets.xcassets */,
 				98F552E72043B54B0069D699 /* LaunchScreen.storyboard */,
 				98F552EA2043B54B0069D699 /* Info.plist */,
+				989B092D2044FFE20017BA76 /* Post.swift */,
+				989B092F204505DA0017BA76 /* tableCell.swift */,
 			);
 			path = Instagram2;
 			sourceTree = "<group>";
@@ -327,11 +336,15 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Instagram2/Pods-Instagram2-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/ParseUI/ParseUI.framework",
+				"${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseUI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITextView_Placeholder.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -474,8 +487,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				989B092C2044E7AD0017BA76 /* PhotoMapViewController.swift in Sources */,
 				98C2A4BE2043BCB700FAA28F /* LoginViewController.swift in Sources */,
+				989B0930204505DA0017BA76 /* tableCell.swift in Sources */,
 				98F552E12043B54B0069D699 /* ViewController.swift in Sources */,
+				989B092E2044FFE20017BA76 /* Post.swift in Sources */,
 				98F552DF2043B54B0069D699 /* AppDelegate.swift in Sources */,
 				989B092A2044D0D50017BA76 /* MainViewController.swift in Sources */,
 			);

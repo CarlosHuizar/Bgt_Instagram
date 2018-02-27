@@ -9,12 +9,17 @@
 import UIKit
 import Parse
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UITableViewDataSource{
 
+    @IBOutlet weak var feedTableView: UITableView!
+    var posts: [PFObject]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        feedTableView.dataSource = self
+        
+        getFeed()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,6 +32,66 @@ class MainViewController: UIViewController {
 
     }
     
+    @IBAction func onShare(_ sender: Any) {
+        
+    }
+    
+    func getFeed()
+    {
+        // construct PFQuery
+        let query = Post.query()
+        query?.order(byDescending: "createdAt")
+        query?.includeKey("author")
+        query?.limit = 20
+        
+        // fetch data asynchronously
+        query?.findObjectsInBackground { (posts: [PFObject]?, error: Error?) -> Void in
+            self.posts = posts
+            if let posts = posts {
+                //print (posts)
+                //self.posts = posts
+            } else {
+                // handle error
+            }
+            self.feedTableView.reloadData()
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if posts != nil{
+            return (posts?.count)!
+        }
+        return 0
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print ("Before")
+        if(posts != nil) {
+            print ("hello")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! tableCell
+            let post = posts![indexPath.row]
+            let caption = post.value(forKey: "caption")
+            let picture = post.value(forKey: "media") as? PFFile
+            if(picture != nil) {
+                picture!.getDataInBackground({ (imageData: Data?, error: Error?) -> Void in
+                    if(imageData != nil) {
+                        let image = UIImage(data: imageData!)
+                        cell.feedImageView.image = image
+                    }
+                })
+            }
+            
+            cell.captionLabel.text = caption as? String
+            
+            return cell
+        }
+        print ("Is nil*******************************")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! tableCell
+        
+        return cell
+    }
     /*
     // MARK: - Navigation
 

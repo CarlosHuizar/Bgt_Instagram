@@ -25,10 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         )
         
+        
         NotificationCenter.default.addObserver(forName: Notification.Name("didLogout"), object: nil, queue: OperationQueue.main) { (Notification) in
             print("Logout notification received")
             self.logOut()
             // TODO: Load and show the login view controller
+        }
+        NotificationCenter.default.addObserver(forName: Notification.Name("didShare"), object: nil, queue: OperationQueue.main) { (Notification) in
+            print("Share")
+            self.goHome()
         }
         
         return true
@@ -46,6 +51,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.window?.rootViewController = loginViewController
             }
         })
+    }
+    func goHome() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        // view controller currently being set in Storyboard as default will be overridden
+        //   let loggedInViewController = storyboard.instantiateViewController(withIdentifier: "tabBar")
+        // self.window?.rootViewController = loggedInViewController
+        let loginViewController = storyboard.instantiateViewController(withIdentifier: "homeFeed")//PUT_YOUR_LOGIN_VC_ID_HERE
+        window?.rootViewController = loginViewController
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
